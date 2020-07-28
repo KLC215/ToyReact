@@ -36,7 +36,17 @@ const ToyReact = {
     return element;
   },
   render(vdom, element) {
-    vdom.mountTo(element);
+    let range = document.createRange();
+
+    if (element.children) {
+      range.setStartAfter(element.lastChild);
+      range.setEndAfter(element.lastChild);
+    } else {
+      range.setStart(element, 0);
+      range.setEnd(element, 0);
+    }
+
+    vdom.mountTo(range);
   },
   Component,
 };

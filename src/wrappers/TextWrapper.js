@@ -3,7 +3,8 @@ export default class TextWrapper {
     this.root = document.createTextNode(type);
   }
 
-  mountTo(parent) {
-    parent.appendChild(this.root);
+  mountTo(range) {
+    range.deleteContents();
+    range.insertNode(this.root);
   }
 }
