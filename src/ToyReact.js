@@ -20,6 +20,9 @@ const ToyReact = {
         if (typeof child === "object" && child instanceof Array) {
           insertChildren(child);
         } else {
+          if (child == null) {
+            child = "";
+          }
           if (!(child instanceof Component) && !(child instanceof ElementWrapper) && !(child instanceof TextWrapper)) {
             child = String(child);
           }
